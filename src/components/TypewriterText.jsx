@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const phrases = ["Web applications with Laravel and React", "REST APIs", "clean interfaces"];
+const phrases = ["Web Apps", "REST APIs", "clean UIs"];
 
 export function TypewriterText() {
   const [phraseIndex, setPhraseIndex] = useState(0);
@@ -48,7 +48,7 @@ export function TypewriterText() {
 
   return (
     <>
-      <span className="sr-only">Web applications with Laravel and React, REST APIs, clean interfaces</span>
+      <span className="sr-only">Web applications, REST APIs, clean interfaces</span>
       <span aria-hidden="true">
         {text}
         <span className="hero-cursor ml-1 inline-block h-[0.85em] w-[0.08em] translate-y-0.5 bg-accent align-baseline" />
