@@ -18,6 +18,7 @@ import {
   Server,
   Sparkles,
   Wrench,
+  FileDown,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import projectsData from "../data/projects.json";
@@ -112,21 +113,27 @@ export function Homepage() {
                 I create reliable full-stack web experiences, from backend APIs to polished interfaces.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4 pt-2 font-mono">
-                <a href="#projects">
-                  <Button variant="accent" size="lg" className="gap-2 shadow-glow-accent transition-transform hover:-translate-y-0.5 hover:shadow-glow-accent">
+              <div className="grid grid-cols-2 gap-3 pt-2 font-mono sm:flex sm:flex-wrap sm:items-center sm:gap-4">
+                <a href="#projects" className="w-full sm:w-auto">
+                  <Button variant="accent" className="w-full gap-1 px-2 text-[10px] shadow-glow-accent transition-transform hover:-translate-y-0.5 hover:shadow-glow-accent sm:w-auto sm:gap-2 sm:px-6 sm:text-sm sm:h-12">
                     <span>$ explore --projects</span>
                   </Button>
                 </a>
-                <Link to="/projects">
-                  <Button variant="outline" size="lg" className="gap-2 transition-all hover:-translate-y-0.5 hover:shadow-glow-subtle">
-                    <GitBranch className="w-4 h-4 text-accent" />
+                <a href="/resume.pdf" download="resume.pdf" className="w-full sm:w-auto">
+                  <Button variant="outline" className="w-full gap-1 px-2 text-[10px] transition-all hover:-translate-y-0.5 hover:shadow-glow-subtle sm:w-auto sm:gap-2 sm:px-6 sm:text-sm sm:h-12">
+                    <FileDown className="h-3 w-3 text-accent sm:h-4 sm:w-4" />
+                    <span>Download Resume</span>
+                  </Button>
+                </a>
+                <Link to="/projects" className="w-full sm:w-auto">
+                  <Button variant="outline" className="w-full gap-1 px-2 text-[10px] transition-all hover:-translate-y-0.5 hover:shadow-glow-subtle sm:w-auto sm:gap-2 sm:px-6 sm:text-sm sm:h-12">
+                    <GitBranch className="h-3 w-3 text-accent sm:h-4 sm:w-4" />
                     <span>Project Catalog</span>
                   </Button>
                 </Link>
-                <Link to="/contact">
-                  <Button variant="ghost" size="lg" className="text-muted-foreground hover:text-accent gap-2 transition-all hover:-translate-y-0.5">
-                    <Mail className="w-4 h-4" />
+                <Link to="/contact" className="w-full sm:w-auto">
+                  <Button variant="cyber" className="w-full gap-1 px-2 text-[10px] transition-all hover:-translate-y-0.5 sm:w-auto sm:gap-2 sm:px-6 sm:text-sm sm:h-12">
+                    <Mail className="h-3 w-3 sm:h-4 sm:w-4" />
                     Contact Me
                   </Button>
                 </Link>
