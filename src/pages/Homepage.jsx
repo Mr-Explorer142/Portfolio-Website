@@ -22,9 +22,10 @@ import {
 import { FaGithub } from "react-icons/fa6";
 import projectsData from "../data/projects.json";
 import { profile } from "../data/profile";
-import { TerminalMockup } from "../components/TerminalMockup";
 import { ContactSection } from "../components/ContactSection";
 import { PublicationSection } from "../components/PublicationSection";
+import { ProjectImage } from "../components/ProjectImage";
+import { TerminalMockup } from "../components/TerminalMockup";
 import { Button } from "../components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
@@ -80,8 +81,6 @@ const skillIcons = {
 };
 
 export function Homepage() {
-  const featuredProjects = projectsData.filter((project) => project.featured).slice(0, 3);
-
   return (
     <div className="relative">
       <div className="absolute inset-0 bg-grid-cyber pointer-events-none opacity-40 z-0" />
@@ -96,19 +95,19 @@ export function Homepage() {
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-primary leading-[1.15]">
-                Hello, I’m {profile.name}. I build web applications with{" "}
+                I build web applications with{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-cyan-300 to-primary">
-                  Laravel, React & Tailwind CSS
+                  Laravel &amp; React
                 </span>
                 .
               </h1>
 
               <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                I’m an early-career developer from Dhaka. My project work includes MentorChai, a virtual mentorship platform built as my thesis, and PonnoKini, a full-stack e-commerce application.
+                A Full Stack Software Developer based in Dhaka, building reliable full-stack web experiences.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2 font-mono">
-                <a href="#featured-projects">
+                <a href="#projects">
                   <Button variant="accent" size="lg" className="gap-2 shadow-glow-accent">
                     <span>Explore My Projects</span>
                     <ArrowRight className="w-4 h-4" />
@@ -128,11 +127,6 @@ export function Homepage() {
                 </Link>
               </div>
 
-              <div className="pt-4 border-t border-border/80 flex flex-wrap items-center gap-6 text-xs font-mono text-muted-foreground">
-                <span><span className="text-accent font-bold">&gt; </span>Backend: Laravel / PHP</span>
-                <span><span className="text-accent font-bold">&gt; </span>Frontend: React / Tailwind CSS</span>
-                <span><span className="text-accent font-bold">&gt; </span>Databases: MySQL / PostgreSQL</span>
-              </div>
             </div>
 
             <div className="lg:col-span-5">
@@ -142,17 +136,17 @@ export function Homepage() {
         </div>
       </section>
 
-      <section id="featured-projects" className="py-20 border-t border-border relative z-10 bg-card/20 scroll-mt-20">
+      <section id="projects" className="py-20 border-t border-border relative z-10 bg-card/20 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
               <div className="flex items-center gap-2 text-accent font-mono text-xs font-semibold mb-2">
                 <Sparkles className="w-4 h-4" />
-                <span>PROJECT HIGHLIGHTS</span>
+                <span>PROJECTS</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary">Featured Projects</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary">Selected Projects</h2>
               <p className="text-muted-foreground text-sm mt-1 max-w-xl font-mono">
-                Selected academic and personal projects, with their repositories and live demos.
+                Academic and personal projects, with their repositories and live demos.
               </p>
             </div>
             <Link to="/projects">
@@ -164,16 +158,16 @@ export function Homepage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {featuredProjects.map((project, index) => (
+            {projectsData.map((project, index) => (
               <Card
                 key={project.id}
-                className="flex flex-col justify-between border-[oklch(40%_0.08_240)] bg-card hover:border-[oklch(78%_0.16_205)] hover:-translate-y-1.5 transition-all duration-300 group"
+                className="overflow-hidden flex flex-col justify-between bg-card hover:-translate-y-1 transition-transform duration-300 group"
               >
+                <ProjectImage project={project} />
                 <div>
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between text-xs font-mono text-muted-foreground mb-1">
                       <span className="text-accent font-bold">PROJECT_0{index + 1}</span>
-                      <Badge variant="accent">FEATURED</Badge>
                     </div>
                     <CardTitle className="text-xl group-hover:text-accent transition-colors font-bold">
                       {project.title}
@@ -183,7 +177,7 @@ export function Homepage() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="p-3.5 rounded bg-background/80 border border-border text-xs leading-relaxed text-slate-300">
+                    <div className="text-sm leading-relaxed text-muted-foreground">
                       <span className="font-mono text-[11px] text-accent block font-semibold mb-1 uppercase tracking-wider">
                         <Code2 className="w-3.5 h-3.5 inline mr-1" />
                         Project Overview
@@ -197,7 +191,7 @@ export function Homepage() {
                     </div>
                   </CardContent>
                 </div>
-                <CardFooter className="pt-4 border-t border-border/80 flex items-center justify-between font-mono text-xs">
+                <CardFooter className="pt-4 flex items-center justify-between font-mono text-xs">
                   <a
                     href={project.githubLink}
                     target="_blank"

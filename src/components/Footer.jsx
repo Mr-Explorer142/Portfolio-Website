@@ -23,7 +23,7 @@ export function Footer() {
               <span className="font-bold text-primary tracking-wide text-sm">{profile.name} · PORTFOLIO</span>
             </div>
             <p className="text-muted-foreground text-xs leading-relaxed max-w-md">
-              Early-career software developer building web applications with Laravel, React, and Tailwind CSS.
+              A Full Stack software developer building web applications with Laravel, React, and Tailwind CSS.
             </p>
             <div className="flex items-start gap-2 text-[11px] text-muted-foreground">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block"></span>

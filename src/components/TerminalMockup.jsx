@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Copy, Check, Terminal as TerminalIcon } from "lucide-react";
-import projectsData from "../data/projects.json";
 import { profile } from "../data/profile";
 
 export function TerminalMockup() {
@@ -12,11 +11,6 @@ export function TerminalMockup() {
     title: profile.title,
     location: profile.location,
     skills: ["PHP", "Laravel", "MySQL", "JavaScript", "React", "Vue.js", "Docker", "Git", "GitHub"],
-    projects: projectsData.filter((project) => project.featured).map(({ title, githubLink, liveLink }) => ({
-      title,
-      repository: githubLink,
-      demo: liveLink,
-    })),
   };
 
   const terminalContent = activeTab === "profile.json"

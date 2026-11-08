@@ -17,6 +17,7 @@ import { Badge } from "../components/ui/badge";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { profile } from "../data/profile";
+import { ProjectImage } from "../components/ProjectImage";
 
 export function Catalog() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -152,17 +153,15 @@ export function Catalog() {
             {filteredProjects.map((project, idx) => (
               <Card
                 key={project.id}
-                className="flex flex-col justify-between border-[oklch(40%_0.08_240)] bg-card hover:border-[oklch(78%_0.16_205)] hover:-translate-y-1.5 transition-all duration-300 group"
+                className="overflow-hidden flex flex-col justify-between bg-card hover:-translate-y-1 transition-transform duration-300 group"
               >
+                <ProjectImage project={project} />
                 <div>
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between text-xs font-mono text-muted-foreground mb-1">
                       <span className="text-accent font-mono font-bold">
                         INDEX_0{idx + 1}
                       </span>
-                      {project.featured && (
-                        <Badge variant="accent">FEATURED</Badge>
-                      )}
                     </div>
                     <CardTitle className="text-xl group-hover:text-accent transition-colors font-bold">
                       {project.title}
@@ -174,7 +173,7 @@ export function Catalog() {
 
                   <CardContent className="space-y-4">
                     {/* Problem Solved Description */}
-                    <div className="p-3.5 rounded bg-background/80 border border-border text-xs leading-relaxed text-slate-300 font-sans">
+                    <div className="text-sm leading-relaxed text-muted-foreground font-sans">
                       <span className="font-mono text-[11px] text-accent block font-semibold mb-1 uppercase tracking-wider">
                         <Code2 className="w-3.5 h-3.5 inline mr-1" />
                         Project Overview
@@ -194,7 +193,7 @@ export function Catalog() {
                 </div>
 
                 {/* Footer Links */}
-                <CardFooter className="pt-4 border-t border-border/80 flex items-center justify-between font-mono text-xs">
+                <CardFooter className="pt-4 flex items-center justify-between font-mono text-xs">
                   <a
                     href={project.githubLink}
                     target="_blank"

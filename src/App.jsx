@@ -7,6 +7,22 @@ import { Catalog } from "./pages/Catalog";
 import { PublicationSection } from "./components/PublicationSection";
 import { ContactSection } from "./components/ContactSection";
 
+function AnimatedRoutes() {
+  const { pathname } = useLocation();
+
+  return (
+    <main key={pathname} className="flex-1 route-enter">
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/projects" element={<Catalog />} />
+        <Route path="/research" element={<PublicationSection />} />
+        <Route path="/contact" element={<ContactSection />} />
+        <Route path="*" element={<Homepage />} />
+      </Routes>
+    </main>
+  );
+}
+
 // Helper component to auto-scroll to top when route changes
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -39,16 +55,7 @@ export default function App() {
         <Navbar />
 
         {/* Main Content Area */}
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/projects" element={<Catalog />} />
-            <Route path="/research" element={<PublicationSection />} />
-            <Route path="/contact" element={<ContactSection />} />
-            {/* Fallback to homepage */}
-            <Route path="*" element={<Homepage />} />
-          </Routes>
-        </main>
+        <AnimatedRoutes />
 
         {/* System Footer */}
         <Footer />

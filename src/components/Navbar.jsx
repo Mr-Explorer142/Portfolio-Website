@@ -44,7 +44,7 @@ export function Navbar() {
             aria-current={isHome ? "page" : undefined}
             className={`inline-flex items-center gap-1 px-1 py-1.5 rounded transition-colors sm:gap-1.5 sm:px-3 ${
               isHome
-                ? "text-accent bg-accent/10 border border-accent/30 font-semibold"
+                ? "text-accent bg-accent/10 font-semibold"
                 : "text-muted-foreground hover:text-primary hover:bg-card/50"
             }`}
           >
@@ -56,7 +56,7 @@ export function Navbar() {
             aria-current={isCatalog ? "page" : undefined}
             className={`inline-flex items-center gap-1 px-1 py-1.5 rounded transition-colors sm:gap-1.5 sm:px-3 ${
               isCatalog
-                ? "text-accent bg-accent/10 border border-accent/30 font-semibold"
+                ? "text-accent bg-accent/10 font-semibold"
                 : "text-muted-foreground hover:text-primary hover:bg-card/50"
             }`}
           >
@@ -68,7 +68,7 @@ export function Navbar() {
             aria-current={isPublication ? "page" : undefined}
             className={`inline-flex items-center gap-1 px-1 py-1.5 rounded transition-colors sm:gap-1.5 sm:px-3 ${
               isPublication
-                ? "text-accent bg-accent/10 border border-accent/30 font-semibold"
+                ? "text-accent bg-accent/10 font-semibold"
                 : "text-muted-foreground hover:text-primary hover:bg-card/50"
             }`}
           >
@@ -80,7 +80,7 @@ export function Navbar() {
             aria-current={isContact ? "page" : undefined}
             className={`inline-flex items-center gap-1 px-1 py-1.5 rounded transition-colors sm:gap-1.5 sm:px-3 ${
               isContact
-                ? "text-accent bg-accent/10 border border-accent/30 font-semibold"
+                ? "text-accent bg-accent/10 font-semibold"
                 : "text-muted-foreground hover:text-primary hover:bg-card/50"
             }`}
           >

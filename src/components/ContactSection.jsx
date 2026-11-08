@@ -90,8 +90,8 @@ export function ContactSection() {
           
           {/* Left Side: System Telemetry & Quick Channels */}
           <div className="lg:col-span-5 space-y-6">
-            <Card className="min-w-0 border-border bg-card/60 backdrop-blur-sm p-4 sm:p-6 space-y-6">
-              <div className="flex items-center gap-2 border-b border-border/80 pb-3">
+            <Card className="min-w-0 bg-card/60 backdrop-blur-sm p-4 sm:p-6 space-y-6">
+              <div className="flex items-center gap-2 pb-3">
                 <Terminal className="w-4 h-4 text-accent" />
                 <span className="font-mono text-xs font-semibold uppercase tracking-wider text-primary">
                   COMMUNICATION_CHANNELS.LOG
@@ -99,7 +99,7 @@ export function ContactSection() {
               </div>
 
               <div className="space-y-4 text-xs font-mono">
-                <div className="p-3 rounded border border-border bg-background/60">
+                <div className="p-3 rounded-lg bg-background/60">
                   <span className="text-muted-foreground block text-[10px] uppercase">Direct Email</span>
                   <a
                     href={`mailto:${profile.email}`}
@@ -109,7 +109,7 @@ export function ContactSection() {
                   </a>
                 </div>
 
-                <div className="p-3 rounded border border-border bg-background/60">
+                <div className="p-3 rounded-lg bg-background/60">
                   <span className="text-muted-foreground block text-[10px] uppercase">GitHub Workspace</span>
                   <a
                     href={profile.githubUrl}
@@ -121,7 +121,7 @@ export function ContactSection() {
                   </a>
                 </div>
 
-                <div className="p-3 rounded border border-border bg-background/60">
+                <div className="p-3 rounded-lg bg-background/60">
                   <span className="text-muted-foreground block text-[10px] uppercase">LinkedIn Network</span>
                   <a
                     href={profile.linkedinUrl}
@@ -134,7 +134,7 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <div className="pt-2 border-t border-border/80 text-[11px] font-mono text-muted-foreground flex items-start gap-2">
+              <div className="pt-2 text-[11px] font-mono text-muted-foreground flex items-start gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
                 <span className="min-w-0">{profile.location}</span>
               </div>
@@ -143,7 +143,7 @@ export function ContactSection() {
 
           {/* Right Side: Form Card */}
           <div className="lg:col-span-7">
-            <Card className="min-w-0 border-border bg-card shadow-xl p-4 sm:p-8 relative overflow-hidden">
+            <Card className="min-w-0 bg-card shadow-xl p-4 sm:p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl pointer-events-none"></div>
 
               {status.submitted ? (
@@ -170,7 +170,7 @@ export function ContactSection() {
               ) : (
                 /* Form Fields */
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="flex items-center justify-between border-b border-border pb-3 mb-2">
+                  <div className="flex items-center justify-between pb-3 mb-2">
                     <span className="font-mono text-xs font-semibold uppercase tracking-wider text-primary flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-accent inline-block"></span>
                       SEND_MESSAGE.POST
@@ -189,7 +189,7 @@ export function ContactSection() {
                     <div className="space-y-1.5">
                       <label htmlFor="contact-name" className="font-mono text-xs text-muted-foreground flex items-center justify-between">
                         <span className="inline-flex items-center gap-1.5"><UserRound aria-hidden="true" className="w-3.5 h-3.5 text-accent" />Your name</span>
-                        <span className="text-[10px] text-accent">*required</span>
+                        <span className="text-[10px] text-accent">*</span>
                       </label>
                       <Input
                         id="contact-name"
@@ -205,7 +205,7 @@ export function ContactSection() {
                     <div className="space-y-1.5">
                       <label htmlFor="contact-email" className="font-mono text-xs text-muted-foreground flex items-center justify-between">
                         <span className="inline-flex items-center gap-1.5"><Mail aria-hidden="true" className="w-3.5 h-3.5 text-accent" />Your email</span>
-                        <span className="text-[10px] text-accent">*required</span>
+                        <span className="text-[10px] text-accent">*</span>
                       </label>
                       <Input
                         id="contact-email"
@@ -222,7 +222,7 @@ export function ContactSection() {
                   <div className="space-y-1.5">
                     <label htmlFor="contact-subject" className="font-mono text-xs text-muted-foreground flex items-center justify-between">
                       <span className="inline-flex items-center gap-1.5"><BriefcaseBusiness aria-hidden="true" className="w-3.5 h-3.5 text-accent" />Subject</span>
-                      <span className="text-[10px] text-accent">*required</span>
+                      <span className="text-[10px] text-accent">*</span>
                     </label>
                     <Input
                       id="contact-subject"
@@ -238,7 +238,7 @@ export function ContactSection() {
                   <div className="space-y-1.5">
                     <label htmlFor="contact-message" className="font-mono text-xs text-muted-foreground flex items-center justify-between">
                       <span className="inline-flex items-center gap-1.5"><MessageSquareText aria-hidden="true" className="w-3.5 h-3.5 text-accent" />Message</span>
-                      <span className="text-[10px] text-accent">*required</span>
+                      <span className="text-[10px] text-accent">*</span>
                     </label>
                     <Textarea
                       id="contact-message"
