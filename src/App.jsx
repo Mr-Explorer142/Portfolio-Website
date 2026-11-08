@@ -10,6 +10,67 @@ import { ContactSection } from "./components/ContactSection";
 function AnimatedRoutes() {
   const { pathname } = useLocation();
 
+  useEffect(() => {
+    const main = document.querySelector("main");
+    if (!main) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const observedElements = new WeakSet();
+    const observer =
+      !prefersReducedMotion && "IntersectionObserver" in window
+        ? new IntersectionObserver(
+            (entries, currentObserver) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.remove("scroll-reveal-pending");
+                  entry.target.classList.add("is-visible");
+                  currentObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+          )
+        : null;
+
+    const observeElement = (element) => {
+      if (observedElements.has(element)) return;
+      observedElements.add(element);
+
+      if (observer) {
+        element.classList.add("scroll-reveal-pending");
+        observer.observe(element);
+      } else {
+        element.classList.add("is-visible");
+      }
+    };
+
+    const observeTargets = (node) => {
+      if (!(node instanceof Element)) return;
+
+      if (node.matches("[data-scroll-reveal]")) {
+        observeElement(node);
+      }
+
+      node.querySelectorAll("[data-scroll-reveal]").forEach(observeElement);
+    };
+
+    observeTargets(main);
+
+    const mutations = new MutationObserver((records) => {
+      records.forEach((record) => {
+        record.addedNodes.forEach(observeTargets);
+      });
+    });
+    mutations.observe(main, { childList: true, subtree: true });
+
+    return () => {
+      observer?.disconnect();
+      mutations.disconnect();
+    };
+  }, [pathname]);
+
   return (
     <main key={pathname} className="flex-1 route-enter">
       <Routes>
@@ -28,10 +89,14 @@ function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      ? "auto"
+      : "smooth";
+
     if (hash) {
       const frame = window.requestAnimationFrame(() => {
         document.getElementById(decodeURIComponent(hash.slice(1)))?.scrollIntoView({
-          behavior: "smooth",
+          behavior,
           block: "start",
         });
       });
@@ -39,7 +104,7 @@ function ScrollToTop() {
       return () => window.cancelAnimationFrame(frame);
     }
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior });
   }, [pathname, hash]);
 
   return null;

@@ -5,7 +5,7 @@ import { Card } from "./ui/card";
 
 export function PublicationSection() {
   return (
-    <section id="publications" className="py-20 border-t border-border relative z-10 scroll-mt-20">
+    <section id="publications" data-scroll-reveal className="py-20 border-t border-border relative z-10 scroll-mt-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
           <Badge variant="accent" className="font-mono text-xs px-3 py-1">RESEARCH</Badge>

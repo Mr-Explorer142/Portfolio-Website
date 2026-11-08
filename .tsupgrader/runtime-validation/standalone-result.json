@@ -1,0 +1,71 @@
+{
+  "planHash": "5816de7d244affb2646507a6201876c56538305d6b068ee7d8809a647e889607",
+  "phase": "standalone",
+  "recordedAtUtc": "2026-11-08T18:41:48.2670061Z",
+  "retryCount": 0,
+  "resetBaseline": false,
+  "complete": true,
+  "result": {
+    "setupSucceeded": true,
+    "setupDurationMs": 0,
+    "setupFailureOutput": null,
+    "assertions": [
+      {
+        "name": "production-build",
+        "kind": "process",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E developer-portfolio@1.0.0 build\r\n\u003E vite build\r\n\r\n\u001B[36mvite v6.4.5 \u001B[32mbuilding for production...\u001B[36m\u001B[39m\r\ntransforming...\r\n\u001B[32m\u2713\u001B[39m 1614 modules transformed.\r\nrendering chunks...\r\ncomputing gzip size...\r\n\u001B[2mdist/\u001B[22m\u001B[32mindex.html                 \u001B[39m\u001B[1m\u001B[2m  1.40 kB\u001B[22m\u001B[1m\u001B[22m\u001B[2m \u2502 gzip:  0.74 kB\u001B[22m\r\n\u001B[2mdist/\u001B[22m\u001B[35massets/index-BLoi9SaT.css  \u001B[39m\u001B[1m\u001B[2m 36.08 kB\u001B[22m\u001B[1m\u001B[22m\u001B[2m \u2502 gzip:  7.43 kB\u001B[22m\r\n\u001B[2mdist/\u001B[22m\u001B[36massets/index-BIe2ZsQA.js   \u001B[39m\u001B[1m\u001B[2m236.30 kB\u001B[22m\u001B[1m\u001B[22m\u001B[2m \u2502 gzip: 70.86 kB\u001B[22m\r\n\u001B[32m\u2713 built in 2.94s\u001B[39m\r\n",
+        "durationMs": 3677
+      },
+      {
+        "name": "home-route-serves",
+        "kind": "http-probe",
+        "verificationMethod": "http-status",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": null,
+        "outputSample": "HTTP 200\n\u003C!doctype html\u003E\n\u003Chtml lang=\u0022en\u0022 class=\u0022dark scroll-smooth\u0022\u003E\n  \u003Chead\u003E\n    \u003Cscript type=\u0022module\u0022\u003Eimport { injectIntoGlobalHook } from \u0022/@react-refresh\u0022;\ninjectIntoGlobalHook(window);\nwindow.$RefreshReg$ = () =\u003E {};\nwindow.$RefreshSig$ = () =\u003E (type) =\u003E type;\u003C/script\u003E\n\n    \u003Cscript type=\u0022module\u0022 src=\u0022/@vite/client\u0022\u003E\u003C/script\u003E\n\n    \u003Cmeta charset=\u0022UTF-8\u0022 /\u003E\n    \u003Clink rel=\u0022icon\u0022 type=\u0022image/svg\u002Bxml\u0022 href=\u0022data:image/svg\u002Bxml,\u003Csvg xmlns=\u0027http://www.w3.org/2000/svg\u0027 viewBox=\u00270 0 24 24\u0027 fill=\u0027none\u0027 stroke=\u0027%2338bdf8\u0027 stroke-width=\u00272\u0027 stroke-linecap=\u0027round\u0027 stroke-linejoin=\u0027round\u0027\u003E\u003Cpolyline points=\u002716 18 22 12 16 6\u0027\u003E\u003C/polyline\u003E\u003Cpolyline points=\u00278 6 2 12 8 18\u0027\u003E\u003C/polyline\u003E\u003C/svg\u003E\u0022 /\u003E\n    \u003Cmeta name=\u0022viewport\u0022 content=\u0022width=device-width, initial-scale=1.0\u0022 /\u003E\n    \u003Cmeta name=\u0022description\u0022 content=\u0022Tahmid Alam Tamim is a Full Stack software developer building web applications with Laravel, React, and Tailwind CSS.\u0022 /\u003E\n    \u003Ctitle\u003ETahmid Alam Tamim | Software Developer\u003C/title\u003E\n    \u003C!-- Google Fonts for Inter and JetBrains Mono --\u003E\n    \u003Clink rel=\u0022preconnect\u0022 href=\u0022https://fonts.googleapis.com\u0022\u003E\n    \u003Clink rel=\u0022preconnect\u0022 href=\u0022https://fonts.gstatic.com\u0022 crossorigin\u003E\n    \u003Clink href=\u0022https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800\u0026family=JetBrains\u002BMono:wght@400;500;600;700\u0026display=swap\u0022 rel=\u0022stylesheet\u0022\u003E\n  \u003C/head\u003E\n  \u003Cbody class=\u0022bg-background text-foreground antialiased selection:bg-accent selection:text-background min-h-screen\u0022\u003E\n    \u003Cdiv id=\u0022root\u0022\u003E\u003C/div\u003E\n    \u003Cscript type=\u0022module\u0022 src=\u0022/src/main.jsx\u0022\u003E\u003C/script\u003E\n  \u003C/body\u003E\n\u003C/html\u003E\n\n--- server output ---\n\r\n\u003E developer-portfolio@1.0.0 dev\r\n\u003E vite --host 127.0.0.1 --port 5173 --strictPort\r\n\r\n\r\n  \u001B[32m\u001B[1mVITE\u001B[22m v6.4.5\u001B[39m  \u001B[2mready in \u001B[0m\u001B[1m276\u001B[22m\u001B[2m\u001B[0m ms\u001B[22m\r\n\r\n  \u001B[32m\u279C\u001B[39m  \u001B[1mLocal\u001B[22m:   \u001B[36mhttp://127.0.0.1:\u001B[1m5173\u001B[22m/\u001B[39m\r\n",
+        "durationMs": 1335
+      }
+    ],
+    "executions": [
+      {
+        "source": "production-build",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "build"
+        ],
+        "cwd": "E:\\Coding 2\\Laravel\\Portfolio",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "home-route-serves",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "dev",
+          "--",
+          "--host",
+          "127.0.0.1",
+          "--port",
+          "5173",
+          "--strictPort"
+        ],
+        "cwd": "E:\\Coding 2\\Laravel\\Portfolio",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      }
+    ]
+  }
+}

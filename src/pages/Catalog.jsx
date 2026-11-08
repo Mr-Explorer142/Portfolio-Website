@@ -153,6 +153,7 @@ export function Catalog() {
             {filteredProjects.map((project, idx) => (
               <Card
                 key={project.id}
+                data-scroll-reveal
                 className="overflow-hidden flex flex-col justify-between bg-card hover:-translate-y-1 transition-transform duration-300 group"
               >
                 <ProjectImage project={project} />

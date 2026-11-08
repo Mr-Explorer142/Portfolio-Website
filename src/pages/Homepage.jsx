@@ -119,10 +119,10 @@ export function Homepage() {
                     <span>$ explore --projects</span>
                   </Button>
                 </a>
-                <a href="/resume.pdf" download="resume.pdf" className="w-full sm:w-auto">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                   <Button variant="outline" className="w-full gap-1 px-2 text-[10px] transition-all hover:-translate-y-0.5 hover:shadow-glow-subtle sm:w-auto sm:gap-2 sm:px-6 sm:text-sm sm:h-12">
                     <FileDown className="h-3 w-3 text-accent sm:h-4 sm:w-4" />
-                    <span>Download Resume</span>
+                    <span>Resume</span>
                   </Button>
                 </a>
                 <Link to="/projects" className="w-full sm:w-auto">
@@ -162,7 +162,7 @@ export function Homepage() {
         </div>
       </section>
 
-      <section id="projects" className="py-20 border-t border-border relative z-10 bg-card/20 scroll-mt-20">
+      <section id="projects" data-scroll-reveal className="py-20 border-t border-border relative z-10 bg-card/20 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
             <div>
@@ -243,7 +243,7 @@ export function Homepage() {
         </div>
       </section>
 
-      <section id="skills" className="py-20 border-t border-border relative z-10 scroll-mt-20">
+      <section id="skills" data-scroll-reveal className="py-20 border-t border-border relative z-10 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
             <Badge variant="accent" className="font-mono text-xs px-3 py-1">TECH STACK</Badge>
@@ -279,7 +279,7 @@ export function Homepage() {
         </div>
       </section>
 
-      <section id="experience" className="py-20 border-t border-border bg-card/20 relative z-10 scroll-mt-20">
+      <section id="experience" data-scroll-reveal className="py-20 border-t border-border bg-card/20 relative z-10 scroll-mt-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-10 space-y-3">
             <Badge variant="accent" className="font-mono text-xs px-3 py-1">ACADEMIC BACKGROUND</Badge>

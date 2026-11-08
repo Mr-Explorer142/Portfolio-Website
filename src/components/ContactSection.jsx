@@ -69,7 +69,7 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 border-t border-border relative scroll-mt-20">
+    <section id="contact" data-scroll-reveal className="py-20 border-t border-border relative scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
