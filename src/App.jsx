@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Homepage } from "./pages/Homepage";
 import { Catalog } from "./pages/Catalog";
+import { PublicationSection } from "./components/PublicationSection";
 import { ContactSection } from "./components/ContactSection";
 
 // Helper component to auto-scroll to top when route changes
@@ -42,6 +43,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/projects" element={<Catalog />} />
+            <Route path="/research" element={<PublicationSection />} />
             <Route path="/contact" element={<ContactSection />} />
             {/* Fallback to homepage */}
             <Route path="*" element={<Homepage />} />

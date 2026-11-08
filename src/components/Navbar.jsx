@@ -1,14 +1,16 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FolderGit2, House, Mail, Send, Terminal } from "lucide-react";
+import { BookOpen, FolderGit2, House, Mail, Send, Terminal } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { profile } from "../data/profile";
 import { Button } from "./ui/button";
 
 export function Navbar() {
   const location = useLocation();
+  const isHome = location.pathname === "/";
   const isCatalog = location.pathname === "/projects";
   const isContact = location.pathname === "/contact";
+  const isPublication = location.pathname === "/research";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md transition-all">
@@ -39,9 +41,9 @@ export function Navbar() {
         >
           <Link
             to="/"
-            aria-current={!isCatalog && !isContact ? "page" : undefined}
+            aria-current={isHome ? "page" : undefined}
             className={`inline-flex items-center gap-1 px-1 py-1.5 rounded transition-colors sm:gap-1.5 sm:px-3 ${
-              !isCatalog && !isContact
+              isHome
                 ? "text-accent bg-accent/10 border border-accent/30 font-semibold"
                 : "text-muted-foreground hover:text-primary hover:bg-card/50"
             }`}
@@ -60,6 +62,18 @@ export function Navbar() {
           >
             <FolderGit2 className="w-3 h-3 sm:h-3.5 sm:w-3.5" />
             Projects
+          </Link>
+          <Link
+            to="/research"
+            aria-current={isPublication ? "page" : undefined}
+            className={`inline-flex items-center gap-1 px-1 py-1.5 rounded transition-colors sm:gap-1.5 sm:px-3 ${
+              isPublication
+                ? "text-accent bg-accent/10 border border-accent/30 font-semibold"
+                : "text-muted-foreground hover:text-primary hover:bg-card/50"
+            }`}
+          >
+            <BookOpen className="w-3 h-3 sm:h-3.5 sm:w-3.5" />
+            Research
           </Link>
           <Link
             to="/contact"

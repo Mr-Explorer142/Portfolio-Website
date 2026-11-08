@@ -24,6 +24,7 @@ import projectsData from "../data/projects.json";
 import { profile } from "../data/profile";
 import { TerminalMockup } from "../components/TerminalMockup";
 import { ContactSection } from "../components/ContactSection";
+import { PublicationSection } from "../components/PublicationSection";
 import { Button } from "../components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
@@ -325,6 +326,8 @@ export function Homepage() {
           </Card>
         </div>
       </section>
+
+      <PublicationSection />
 
       <ContactSection />
     </div>
