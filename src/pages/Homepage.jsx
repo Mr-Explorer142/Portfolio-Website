@@ -26,6 +26,8 @@ import { ContactSection } from "../components/ContactSection";
 import { PublicationSection } from "../components/PublicationSection";
 import { ProjectImage } from "../components/ProjectImage";
 import { TerminalMockup } from "../components/TerminalMockup";
+import { HeroPortrait } from "../components/HeroPortrait";
+import { TypewriterText } from "../components/TypewriterText";
 import { Button } from "../components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
@@ -83,53 +85,70 @@ const skillIcons = {
 export function Homepage() {
   return (
     <div className="relative">
-      <div className="absolute inset-0 bg-grid-cyber pointer-events-none opacity-40 z-0" />
+      <div className="hero-dot-grid absolute inset-0 pointer-events-none opacity-30 z-0" />
 
       <section className="relative z-10 pt-12 pb-20 sm:pt-20 sm:pb-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="inline-flex max-w-full items-center gap-2 px-3 py-1 rounded-full border border-accent/40 bg-accent/10 text-accent font-mono text-xs">
-                <span className="w-2 h-2 rounded-full bg-accent animate-ping inline-block" />
-                <span>SOFTWARE DEVELOPER · {profile.location}</span>
-              </div>
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-12">
+            <HeroPortrait
+              name={profile.name}
+              title={profile.title}
+              imageSrc="/images/profile-placeholder.jpg"
+            />
 
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-primary leading-[1.15]">
-                I build web applications with{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-cyan-300 to-primary">
-                  Laravel &amp; React
+            <div className="order-2 space-y-6 text-left lg:order-1 lg:col-span-7">
+              <p className="font-mono text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+                {profile.title} · {profile.location}
+              </p>
+
+              <h1 className="text-4xl font-extrabold tracking-tight text-primary leading-[1.1] sm:text-5xl lg:text-6xl">
+                Hi, I’m {profile.name}.
+                <span className="mt-2 block text-transparent bg-clip-text bg-gradient-to-r from-accent via-cyan-300 to-primary">
+                  I build <TypewriterText />.
                 </span>
-                .
               </h1>
 
-              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                A Full Stack Software Developer based in Dhaka, building reliable full-stack web experiences.
+              <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+                I create reliable full-stack web experiences, from backend APIs to polished interfaces.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2 font-mono">
                 <a href="#projects">
-                  <Button variant="accent" size="lg" className="gap-2 shadow-glow-accent">
-                    <span>Explore My Projects</span>
-                    <ArrowRight className="w-4 h-4" />
+                  <Button variant="accent" size="lg" className="gap-2 shadow-glow-accent transition-transform hover:-translate-y-0.5 hover:shadow-glow-accent">
+                    <span>$ explore --projects</span>
                   </Button>
                 </a>
                 <Link to="/projects">
-                  <Button variant="outline" size="lg" className="gap-2">
+                  <Button variant="outline" size="lg" className="gap-2 transition-all hover:-translate-y-0.5 hover:shadow-glow-subtle">
                     <GitBranch className="w-4 h-4 text-accent" />
                     <span>Project Catalog</span>
                   </Button>
                 </Link>
                 <Link to="/contact">
-                  <Button variant="ghost" size="lg" className="text-muted-foreground hover:text-accent gap-2">
+                  <Button variant="ghost" size="lg" className="text-muted-foreground hover:text-accent gap-2 transition-all hover:-translate-y-0.5">
                     <Mail className="w-4 h-4" />
                     Contact Me
                   </Button>
                 </Link>
               </div>
 
+              <div className="flex flex-wrap gap-x-8 gap-y-3 border-t border-border/70 pt-5 font-mono">
+                <div>
+                  <p className="text-lg font-bold text-primary">02+</p>
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Projects</p>
+                </div>
+                <div>
+                  <p className="text-lg font-bold text-primary">04</p>
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Core technologies</p>
+                </div>
+                <div>
+                  <p className="text-lg font-bold text-primary">01</p>
+                  <p className="text-[10px] uppercase tracking-wider text-muted-foreground">Publication</p>
+                </div>
+              </div>
             </div>
 
-            <div className="lg:col-span-5">
+            <div className="order-3 lg:col-span-12">
               <TerminalMockup />
             </div>
           </div>
