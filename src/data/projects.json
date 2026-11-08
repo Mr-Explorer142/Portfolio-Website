@@ -33,7 +33,7 @@
     "imageAlt": "PonnoKini online storefront preview",
     "subtitle": "AI-Powered Full-Stack E-Commerce Platform",
     "description": [
-      "Built a full-stack e-commerce app with storefront and admin dashboard.",
+      "Built a full-stack e-commerce app with storefront, admin dashboard, and MySQL database.",
       "Implemented auth, role-based access, social login, and account flows.",
       "Added product management, search, filtering, pricing, and Redis caching.",
       "Integrated payments, AI recommendations, notifications, and order workflows."
@@ -44,7 +44,7 @@
       "React",
       "Vite",
       "Tailwind CSS",
-      "SQLite",
+      "MySQL",
       "SSLCommerz",
       "Cloudinary",
       "Redis",
