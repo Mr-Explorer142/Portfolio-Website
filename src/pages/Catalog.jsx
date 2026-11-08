@@ -179,7 +179,11 @@ export function Catalog() {
                         <Code2 className="w-3.5 h-3.5 inline mr-1" />
                         Project Overview
                       </span>
-                      {project.description}
+                      <ul className="list-disc pl-4 space-y-1 text-[12px] leading-relaxed">
+                        {project.description.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
                     </div>
 
                     {/* Tech Badges */}

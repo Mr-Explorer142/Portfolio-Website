@@ -23,29 +23,24 @@ export function Navbar() {
           <div className="w-8 h-8 rounded border border-accent/60 bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-background transition-colors duration-200 shadow-glow-subtle">
             <Terminal className="w-4 h-4" />
           </div>
-          <div className="flex flex-col">
-            <span className="font-mono text-xs sm:text-sm font-bold tracking-tight text-primary flex items-center gap-1.5">
-              <span className="text-accent">&gt;_</span>
-              <span className="sm:hidden">Tahmid</span>
-              <span className="hidden sm:inline">{profile.name}</span>
-            </span>
-            <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest -mt-0.5">
-              Software Developer
+          <div className="flex items-center">
+            <span className="font-mono text-xs sm:text-sm font-bold tracking-tight text-primary">
+              {profile.name}
             </span>
           </div>
         </Link>
 
         <nav
           aria-label="Primary navigation"
-          className="order-3 flex w-full items-center justify-center gap-0 border-t border-border/70 pt-2 font-mono text-[9px] sm:gap-1 sm:text-xs md:order-none md:w-auto md:border-0 md:pt-0"
+          className="order-3 flex w-full items-center justify-center gap-1 rounded-full border border-border/70 bg-card/60 px-1 py-1.5 font-mono text-[10px] sm:text-[11px] md:order-none md:w-auto md:gap-1.5 md:px-2 md:text-[11px]"
         >
           <Link
             to="/"
             aria-current={isHome ? "page" : undefined}
-            className={`inline-flex items-center gap-1 px-1 py-1.5 rounded transition-colors sm:gap-1.5 sm:px-3 ${
+            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-colors sm:gap-1.5 sm:px-3 ${
               isHome
-                ? "text-accent bg-accent/10 font-semibold"
-                : "text-muted-foreground hover:text-primary hover:bg-card/50"
+                ? "text-accent bg-accent/10 font-semibold shadow-sm"
+                : "text-muted-foreground hover:text-primary hover:bg-card/80"
             }`}
           >
             <House className="w-3 h-3 sm:h-3.5 sm:w-3.5" />
@@ -54,10 +49,10 @@ export function Navbar() {
           <Link
             to="/projects"
             aria-current={isCatalog ? "page" : undefined}
-            className={`inline-flex items-center gap-1 px-1 py-1.5 rounded transition-colors sm:gap-1.5 sm:px-3 ${
+            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-colors sm:gap-1.5 sm:px-3 ${
               isCatalog
-                ? "text-accent bg-accent/10 font-semibold"
-                : "text-muted-foreground hover:text-primary hover:bg-card/50"
+                ? "text-accent bg-accent/10 font-semibold shadow-sm"
+                : "text-muted-foreground hover:text-primary hover:bg-card/80"
             }`}
           >
             <FolderGit2 className="w-3 h-3 sm:h-3.5 sm:w-3.5" />
@@ -66,10 +61,10 @@ export function Navbar() {
           <Link
             to="/research"
             aria-current={isPublication ? "page" : undefined}
-            className={`inline-flex items-center gap-1 px-1 py-1.5 rounded transition-colors sm:gap-1.5 sm:px-3 ${
+            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-colors sm:gap-1.5 sm:px-3 ${
               isPublication
-                ? "text-accent bg-accent/10 font-semibold"
-                : "text-muted-foreground hover:text-primary hover:bg-card/50"
+                ? "text-accent bg-accent/10 font-semibold shadow-sm"
+                : "text-muted-foreground hover:text-primary hover:bg-card/80"
             }`}
           >
             <BookOpen className="w-3 h-3 sm:h-3.5 sm:w-3.5" />
@@ -78,10 +73,10 @@ export function Navbar() {
           <Link
             to="/contact"
             aria-current={isContact ? "page" : undefined}
-            className={`inline-flex items-center gap-1 px-1 py-1.5 rounded transition-colors sm:gap-1.5 sm:px-3 ${
+            className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1.5 transition-colors sm:gap-1.5 sm:px-3 ${
               isContact
-                ? "text-accent bg-accent/10 font-semibold"
-                : "text-muted-foreground hover:text-primary hover:bg-card/50"
+                ? "text-accent bg-accent/10 font-semibold shadow-sm"
+                : "text-muted-foreground hover:text-primary hover:bg-card/80"
             }`}
           >
             <Mail className="w-3 h-3 sm:h-3.5 sm:w-3.5" />

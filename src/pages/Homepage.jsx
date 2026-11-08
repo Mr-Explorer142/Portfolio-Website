@@ -208,7 +208,11 @@ export function Homepage() {
                         <Code2 className="w-3.5 h-3.5 inline mr-1" />
                         Project Overview
                       </span>
-                      {project.description}
+                      <ul className="list-disc pl-4 space-y-1 text-[12px] leading-relaxed">
+                        {project.description.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
                     </div>
                     <div className="flex flex-wrap gap-1.5 pt-1">
                       {project.tags.map((tag) => (
@@ -327,9 +331,9 @@ export function Homepage() {
                 <GraduationCap className="w-5 h-5 text-accent" />
               </div>
               <div className="space-y-2">
-                <h3 className="text-lg font-bold text-primary">Thesis Project: MentorChai</h3>
+                <h3 className="text-lg font-bold text-primary">MentorChai — Virtual Mentorship Platform (Team Project)</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  A virtual mentorship platform developed as my thesis project. See the project card for its features, technology stack, source code, and live demo.
+                  Team lead and backend developer for a mentorship platform focused on student–mentor collaboration, session management, payments, and real-time communication.
                 </p>
                 <a
                   href="https://github.com/Mr-Explorer142/MentorChai"

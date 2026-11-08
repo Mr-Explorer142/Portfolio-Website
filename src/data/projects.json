@@ -4,8 +4,13 @@
     "title": "MentorChai",
     "image": "/images/mentorchai-preview.png",
     "imageAlt": "MentorChai mentorship session dashboard preview",
-    "subtitle": "Virtual Mentorship Platform · Thesis Project",
-    "description": "A virtual mentorship platform that helps students and mentors connect for scheduled learning sessions. The project brings together mentor discovery, session booking, real-time communication, video calling, notifications, and sandbox payment integration in one Laravel application.",
+    "subtitle": "Virtual Mentorship Platform (Team Project)",
+    "description": [
+      "Built a mentorship platform with student, mentor, and admin dashboards.",
+      "Led backend architecture, role-based access, and mentor session workflows.",
+      "Handled bookings, approvals, reviews, ratings, and payment flows.",
+      "Integrated real-time chat, video sessions, notifications, and testing."
+    ],
     "tags": [
       "PHP",
       "Laravel",
@@ -26,8 +31,13 @@
     "title": "PonnoKini",
     "image": "/images/ponnokini-preview.png",
     "imageAlt": "PonnoKini online storefront preview",
-    "subtitle": "Full-Stack E-Commerce Application",
-    "description": "A Laravel REST API and React storefront covering the shopping journey from product discovery and account verification through checkout, payment, order management, and customer support, with separate administration tools.",
+    "subtitle": "AI-Powered Full-Stack E-Commerce Platform",
+    "description": [
+      "Built a full-stack e-commerce app with storefront and admin dashboard.",
+      "Implemented auth, role-based access, social login, and account flows.",
+      "Added product management, search, filtering, pricing, and Redis caching.",
+      "Integrated payments, AI recommendations, notifications, and order workflows."
+    ],
     "tags": [
       "PHP",
       "Laravel",
@@ -37,6 +47,7 @@
       "SQLite",
       "SSLCommerz",
       "Cloudinary",
+      "Redis",
       "Pest",
       "Vercel"
     ],
