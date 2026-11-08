@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  .dark {
+    /* Exact OKLCH "Cool Tech" Cyber Color Palette */
+    --background: 16% 0.02 240;          /* Deep Slate Blue-Black */
+    --card: 22% 0.02 240;                /* Muted Midnight Blue */
+    --card-foreground: 95% 0.01 240;    /* Ice White */
+    --popover: 22% 0.02 240;             /* Muted Midnight Blue */
+    --popover-foreground: 95% 0.01 240; /* Ice White */
+    --foreground: 95% 0.01 240;         /* Ice White */
+    --primary: 95% 0.01 240;             /* Ice White */
+    --primary-foreground: 16% 0.02 240;  /* Deep Slate Text */
+    --muted: 70% 0.01 256;               /* Muted Slate Grey */
+    --muted-foreground: 70% 0.01 256;    /* Muted Slate Grey */
+    --secondary: 70% 0.01 256;           /* Muted Slate Grey */
+    --secondary-foreground: 95% 0.01 240;/* Ice White */
+    --accent: 78% 0.16 205;              /* Electric Cyan / Neon Teal highlight */
+    --accent-foreground: 16% 0.02 240;   /* Deep Slate contrast */
+    --border: 40% 0.08 240;              /* 1px sharp thin steel lines */
+    --input: 40% 0.08 240;               /* 1px sharp steel borders */
+    --ring: 78% 0.16 205;                /* Electric Cyan Focus Ring */
+    --radius: 0.375rem;                  /* Crisp 6px engineered radii */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-color: oklch(var(--background));
+    color: oklch(var(--foreground));
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom Cyber grid & scanline subtle effects */
+.bg-grid-cyber {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, oklch(40% 0.08 240 / 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(40% 0.08 240 / 0.18) 1px, transparent 1px);
+}
+
+.terminal-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.terminal-scroll::-webkit-scrollbar-track {
+  background: oklch(16% 0.02 240);
+}
+.terminal-scroll::-webkit-scrollbar-thumb {
+  background: oklch(40% 0.08 240);
+  border-radius: 3px;
+}
+.terminal-scroll::-webkit-scrollbar-thumb:hover {
+  background: oklch(78% 0.16 205);
+}

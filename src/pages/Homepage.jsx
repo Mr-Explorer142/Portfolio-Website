@@ -1,0 +1,332 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  Code2,
+  Database,
+  GitBranch,
+  Terminal,
+  Send,
+  Cloud,
+  Box,
+  BookOpen,
+  Triangle,
+  ExternalLink,
+  GraduationCap,
+  Layers,
+  Mail,
+  Server,
+  Sparkles,
+  Wrench,
+} from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
+import projectsData from "../data/projects.json";
+import { profile } from "../data/profile";
+import { TerminalMockup } from "../components/TerminalMockup";
+import { ContactSection } from "../components/ContactSection";
+import { Button } from "../components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "../components/ui/card";
+import { Badge } from "../components/ui/badge";
+
+const skillCategories = [
+  {
+    category: "Programming Languages",
+    icon: Code2,
+    skills: ["JavaScript", "PHP", "Python"],
+  },
+  {
+    category: "Frontend",
+    icon: Layers,
+    skills: ["Bootstrap", "Tailwind CSS", "Vue.js", "React"],
+  },
+  {
+    category: "Backend Framework",
+    icon: Server,
+    skills: ["Laravel"],
+  },
+  {
+    category: "Databases",
+    icon: Database,
+    skills: ["MySQL", "PostgreSQL"],
+  },
+  {
+    category: "Tools",
+    icon: Wrench,
+    skills: ["Git", "GitHub", "Docker", "Linux", "Shell Scripting", "Postman", "Notion", "Vercel", "Laravel Cloud"],
+  },
+];
+
+const skillIcons = {
+  JavaScript: Code2,
+  PHP: Code2,
+  Python: Code2,
+  Bootstrap: Layers,
+  "Tailwind CSS": Layers,
+  "Vue.js": Layers,
+  React: Layers,
+  Laravel: Server,
+  MySQL: Database,
+  PostgreSQL: Database,
+  Git: GitBranch,
+  GitHub: FaGithub,
+  Docker: Box,
+  Linux: Terminal,
+  "Shell Scripting": Terminal,
+  Postman: Send,
+  Notion: BookOpen,
+  Vercel: Triangle,
+  "Laravel Cloud": Cloud,
+};
+
+export function Homepage() {
+  const featuredProjects = projectsData.filter((project) => project.featured).slice(0, 3);
+
+  return (
+    <div className="relative">
+      <div className="absolute inset-0 bg-grid-cyber pointer-events-none opacity-40 z-0" />
+
+      <section className="relative z-10 pt-12 pb-20 sm:pt-20 sm:pb-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="inline-flex max-w-full items-center gap-2 px-3 py-1 rounded-full border border-accent/40 bg-accent/10 text-accent font-mono text-xs">
+                <span className="w-2 h-2 rounded-full bg-accent animate-ping inline-block" />
+                <span>SOFTWARE DEVELOPER · {profile.location}</span>
+              </div>
+
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-primary leading-[1.15]">
+                Hello, I’m {profile.name}. I build web applications with{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-cyan-300 to-primary">
+                  Laravel, React & Tailwind CSS
+                </span>
+                .
+              </h1>
+
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+                I’m an early-career developer from Dhaka. My project work includes MentorChai, a virtual mentorship platform built as my thesis, and PonnoKini, a full-stack e-commerce application.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-4 pt-2 font-mono">
+                <a href="#featured-projects">
+                  <Button variant="accent" size="lg" className="gap-2 shadow-glow-accent">
+                    <span>Explore My Projects</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
+                </a>
+                <Link to="/projects">
+                  <Button variant="outline" size="lg" className="gap-2">
+                    <GitBranch className="w-4 h-4 text-accent" />
+                    <span>Project Catalog</span>
+                  </Button>
+                </Link>
+                <Link to="/contact">
+                  <Button variant="ghost" size="lg" className="text-muted-foreground hover:text-accent gap-2">
+                    <Mail className="w-4 h-4" />
+                    Contact Me
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="pt-4 border-t border-border/80 flex flex-wrap items-center gap-6 text-xs font-mono text-muted-foreground">
+                <span><span className="text-accent font-bold">&gt; </span>Backend: Laravel / PHP</span>
+                <span><span className="text-accent font-bold">&gt; </span>Frontend: React / Tailwind CSS</span>
+                <span><span className="text-accent font-bold">&gt; </span>Databases: MySQL / PostgreSQL</span>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <TerminalMockup />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="featured-projects" className="py-20 border-t border-border relative z-10 bg-card/20 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div>
+              <div className="flex items-center gap-2 text-accent font-mono text-xs font-semibold mb-2">
+                <Sparkles className="w-4 h-4" />
+                <span>PROJECT HIGHLIGHTS</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary">Featured Projects</h2>
+              <p className="text-muted-foreground text-sm mt-1 max-w-xl font-mono">
+                Selected academic and personal projects, with their repositories and live demos.
+              </p>
+            </div>
+            <Link to="/projects">
+              <Button variant="cyber" className="gap-2">
+                <span>View All Projects</span>
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredProjects.map((project, index) => (
+              <Card
+                key={project.id}
+                className="flex flex-col justify-between border-[oklch(40%_0.08_240)] bg-card hover:border-[oklch(78%_0.16_205)] hover:-translate-y-1.5 transition-all duration-300 group"
+              >
+                <div>
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center justify-between text-xs font-mono text-muted-foreground mb-1">
+                      <span className="text-accent font-bold">PROJECT_0{index + 1}</span>
+                      <Badge variant="accent">FEATURED</Badge>
+                    </div>
+                    <CardTitle className="text-xl group-hover:text-accent transition-colors font-bold">
+                      {project.title}
+                    </CardTitle>
+                    <CardDescription className="text-xs font-mono text-muted-foreground pt-1">
+                      {project.subtitle}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="p-3.5 rounded bg-background/80 border border-border text-xs leading-relaxed text-slate-300">
+                      <span className="font-mono text-[11px] text-accent block font-semibold mb-1 uppercase tracking-wider">
+                        <Code2 className="w-3.5 h-3.5 inline mr-1" />
+                        Project Overview
+                      </span>
+                      {project.description}
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {project.tags.map((tag) => (
+                        <Badge key={tag} variant="default" className="text-[11px]">{tag}</Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </div>
+                <CardFooter className="pt-4 border-t border-border/80 flex items-center justify-between font-mono text-xs">
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-accent transition-colors"
+                  >
+                    <FaGithub className="w-4 h-4" />
+                    <span>Repository</span>
+                  </a>
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-accent hover:text-primary transition-colors font-semibold"
+                  >
+                    <span>Live Demo</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" className="py-20 border-t border-border relative z-10 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+            <Badge variant="accent" className="font-mono text-xs px-3 py-1">TECH STACK</Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary">Technical Skills</h2>
+            <p className="text-muted-foreground text-sm font-mono">
+              Tools and technologies I’ve worked with across my projects.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skillCategories.map(({ category, icon: Icon, skills }) => (
+              <Card key={category} className="border-border bg-card/70 hover:border-accent transition-all duration-200">
+                <CardHeader className="pb-3">
+                  <div className="w-9 h-9 rounded border border-border bg-background flex items-center justify-center mb-3">
+                    <Icon className="w-4 h-4 text-accent" />
+                  </div>
+                  <CardTitle className="text-base font-mono font-bold text-primary">{category}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex flex-wrap gap-2">
+                  {skills.map((skill) => {
+                    const SkillIcon = skillIcons[skill] || Code2;
+                    return (
+                      <Badge key={skill} variant="default" className="gap-1.5 py-1">
+                        <SkillIcon className="w-3 h-3 text-accent" />
+                        {skill}
+                      </Badge>
+                    );
+                  })}
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" className="py-20 border-t border-border bg-card/20 relative z-10 scroll-mt-20">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-xl mx-auto mb-10 space-y-3">
+            <Badge variant="accent" className="font-mono text-xs px-3 py-1">ACADEMIC BACKGROUND</Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-primary">Education & Experience</h2>
+            <p className="text-muted-foreground text-sm font-mono">
+              My education and thesis project; I’m at the beginning of my professional journey.
+            </p>
+          </div>
+
+          <div className="relative border-l-2 border-accent/40 ml-4 sm:ml-8 space-y-6 pl-6 sm:pl-8">
+            <Card className="relative border-border bg-card p-6 sm:p-7">
+              <span className="absolute -left-[33px] sm:-left-[41px] top-8 w-4 h-4 rounded-full bg-background border-2 border-accent" />
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                <div>
+                  <h3 className="text-lg font-bold text-primary">Bachelor of Science in Computer Science & Engineering</h3>
+                  <p className="text-sm text-accent font-medium">Daffodil International University</p>
+                </div>
+                <span className="text-xs font-mono text-muted-foreground whitespace-nowrap">Sep 2022 – Sep 2026</span>
+              </div>
+              <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-muted-foreground">
+                <span>CGPA: <strong className="text-primary">3.49 / 4.00</strong></span>
+                <span>Dhaka, Bangladesh</span>
+              </div>
+            </Card>
+
+            <Card className="relative border-border bg-card p-6 sm:p-7">
+              <span className="absolute -left-[33px] sm:-left-[41px] top-8 w-4 h-4 rounded-full bg-background border-2 border-accent" />
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                <div>
+                  <h3 className="text-lg font-bold text-primary">Higher Secondary Certificate (HSC) — Science</h3>
+                  <p className="text-sm text-accent font-medium">Milestone College</p>
+                </div>
+                <span className="text-xs font-mono text-muted-foreground whitespace-nowrap">Jun 2019 – Dec 2021</span>
+              </div>
+              <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-muted-foreground">
+                <span>GPA: <strong className="text-primary">5.00 / 5.00</strong></span>
+                <span>Dhaka, Bangladesh</span>
+              </div>
+            </Card>
+          </div>
+
+          <Card className="mt-8 border-border bg-card p-6 sm:p-7">
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 shrink-0 rounded border border-accent/40 bg-accent/10 flex items-center justify-center">
+                <GraduationCap className="w-5 h-5 text-accent" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-lg font-bold text-primary">Thesis Project: MentorChai</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  A virtual mentorship platform developed as my thesis project. See the project card for its features, technology stack, source code, and live demo.
+                </p>
+                <a
+                  href="https://github.com/Mr-Explorer142/MentorChai"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-accent hover:text-primary transition-colors"
+                >
+                  <FaGithub className="w-4 h-4" />
+                  View thesis project
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      <ContactSection />
+    </div>
+  );
+}

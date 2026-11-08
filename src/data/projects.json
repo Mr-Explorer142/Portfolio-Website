@@ -1,0 +1,44 @@
+[
+  {
+    "id": "mentorchai",
+    "title": "MentorChai",
+    "subtitle": "Virtual Mentorship Platform · Thesis Project",
+    "description": "A virtual mentorship platform that helps students and mentors connect for scheduled learning sessions. The project brings together mentor discovery, session booking, real-time communication, video calling, notifications, and sandbox payment integration in one Laravel application.",
+    "tags": [
+      "PHP",
+      "Laravel",
+      "MySQL",
+      "Tailwind CSS",
+      "DaisyUI",
+      "Laravel Echo",
+      "Pusher",
+      "ZegoCloud",
+      "SSLCommerz",
+      "Laravel Cloud"
+    ],
+    "githubLink": "https://github.com/Mr-Explorer142/MentorChai",
+    "liveLink": "https://mentorchai-production-cdw3if.laravel.cloud/",
+    "featured": true
+  },
+  {
+    "id": "ponno-kini",
+    "title": "PonnoKini",
+    "subtitle": "Full-Stack E-Commerce Application",
+    "description": "A Laravel REST API and React storefront covering the shopping journey from product discovery and account verification through checkout, payment, order management, and customer support, with separate administration tools.",
+    "tags": [
+      "PHP",
+      "Laravel",
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "SQLite",
+      "SSLCommerz",
+      "Cloudinary",
+      "Pest",
+      "Vercel"
+    ],
+    "githubLink": "https://github.com/Mr-Explorer142/PonnoKini",
+    "liveLink": "https://ponno-kini.vercel.app",
+    "featured": true
+  }
+]
