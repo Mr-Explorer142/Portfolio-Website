@@ -2,19 +2,15 @@
 
 A responsive, dark-mode developer portfolio built with React and Vite. It showcases my projects, technical skills, education, and contact information, with client-side navigation between the homepage, project catalog, and contact page.
 
-> **Live site:** [Add the deployed portfolio URL here](https://your-portfolio-url.vercel.app)
+> **Live Site:** [Visit My Portfolio](https://portfolio-website-ebon-delta-kmq9aeidnr.vercel.app/)
 
 ## Screenshots
 
 <!-- TODO: Add screenshots to the repository, then replace these placeholders. -->
 
-| Homepage | Project catalog |
-| --- | --- |
-| `Add homepage screenshot` | `Add project catalog screenshot` |
-
-| Contact page | Mobile layout |
-| --- | --- |
-| `Add contact page screenshot` | `Add mobile screenshot` |
+<img width="1754" height="869" alt="image" src="https://github.com/user-attachments/assets/89b0e5f0-45a7-448c-aca5-313f0bbee0dd" />
+<img width="1225" height="884" alt="image" src="https://github.com/user-attachments/assets/142686dd-c776-4d72-a277-ffcbfe5c1ab5" />
+<img width="1548" height="910" alt="image" src="https://github.com/user-attachments/assets/50275890-622f-4545-bdb0-9923ac18b8f3" />
 
 ## Features
 
