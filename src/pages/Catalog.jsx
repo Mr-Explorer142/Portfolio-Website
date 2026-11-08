@@ -161,7 +161,7 @@ export function Catalog() {
                   <CardHeader className="pb-3">
                     <div className="flex items-center justify-between text-xs font-mono text-muted-foreground mb-1">
                       <span className="text-accent font-mono font-bold">
-                        INDEX_0{idx + 1}
+                        PROJECT_0{idx + 1}
                       </span>
                     </div>
                     <CardTitle className="text-xl group-hover:text-accent transition-colors font-bold">
