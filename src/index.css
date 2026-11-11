@@ -3,7 +3,28 @@
 @tailwind utilities;
 
 @layer base {
-  :root,
+  :root {
+    /* Light mode: the same cool cyan system on a clean paper/slate base */
+    --background: 98% 0.006 240;
+    --card: 100% 0 0;
+    --card-foreground: 24% 0.025 240;
+    --popover: 100% 0 0;
+    --popover-foreground: 24% 0.025 240;
+    --foreground: 24% 0.025 240;
+    --primary: 24% 0.025 240;
+    --primary-foreground: 98% 0.006 240;
+    --muted: 55% 0.025 240;
+    --muted-foreground: 48% 0.035 240;
+    --secondary: 91% 0.025 240;
+    --secondary-foreground: 28% 0.03 240;
+    --accent: 54% 0.15 205;
+    --accent-foreground: 99% 0.005 240;
+    --border: 86% 0.025 240;
+    --input: 82% 0.03 240;
+    --ring: 54% 0.15 205;
+    --radius: 0.375rem;
+  }
+
   .dark {
     /* Exact OKLCH "Cool Tech" Cyber Color Palette */
     --background: 15% 0.02 250;          /* Deep slate */
@@ -39,6 +60,15 @@
   html {
     scroll-behavior: smooth;
   }
+
+  html.app-preloading #root {
+    opacity: 0;
+  }
+
+  html.app-preloading,
+  html.app-preloading body {
+    background-color: oklch(var(--background));
+  }
 }
 
 /* Custom Cyber grid & scanline subtle effects */
@@ -47,6 +77,137 @@
   background-image: 
     linear-gradient(to right, oklch(40% 0.08 240 / 0.18) 1px, transparent 1px),
     linear-gradient(to bottom, oklch(40% 0.08 240 / 0.18) 1px, transparent 1px);
+}
+
+.intro-loader {
+  animation: intro-loader-enter 450ms ease-out both;
+}
+
+.intro-loader-leaving {
+  animation: intro-loader-leave 500ms ease-in both;
+  pointer-events: none;
+}
+
+.intro-loader-grid {
+  background-image:
+    linear-gradient(to right, oklch(var(--accent) / 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(var(--accent) / 0.1) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse at center, black, transparent 70%);
+}
+
+.intro-logo-mark {
+  animation: intro-logo-pulse 1.5s ease-in-out infinite;
+}
+
+.intro-kicker,
+.intro-command {
+  animation: intro-text-rise 600ms 180ms ease-out both;
+}
+
+.intro-cursor {
+  animation: hero-cursor-blink 850ms steps(2, start) infinite;
+}
+
+@keyframes intro-loader-enter {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes intro-loader-leave {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes intro-logo-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 20px -5px oklch(var(--accent) / 0.45); }
+  50% { transform: scale(1.06); box-shadow: 0 0 32px -4px oklch(var(--accent) / 0.75); }
+}
+
+@keyframes intro-text-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animated-card-border {
+  --card-border-angle: 0deg;
+  border-color: transparent !important;
+}
+
+.animated-card-border::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  padding: 1px;
+  border-radius: inherit;
+  content: "";
+  background: conic-gradient(
+    from var(--card-border-angle),
+    transparent 0deg,
+    oklch(var(--accent) / 0.12) 55deg,
+    oklch(var(--accent) / 0.8) 105deg,
+    transparent 165deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.7;
+  animation: card-border-spin 8s linear infinite;
+  transition: opacity 200ms ease;
+}
+
+.animated-card-border > * {
+  position: relative;
+  z-index: 1;
+}
+
+.animated-card-border:hover::before {
+  opacity: 1;
+}
+
+.terminal-animated-border {
+  --terminal-border-angle: 0deg;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--terminal-border-angle),
+    oklch(var(--accent) / 0.12),
+    oklch(var(--accent) / 0.95) 18%,
+    oklch(78% 0.16 205 / 0.2) 34%,
+    oklch(var(--accent) / 0.12) 52%,
+    oklch(var(--accent) / 0.85) 72%,
+    oklch(var(--accent) / 0.12)
+  );
+  animation: terminal-border-spin 7s linear infinite;
+}
+
+.terminal-animated-border > * {
+  position: relative;
+  z-index: 1;
+}
+
+@property --card-border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --terminal-border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes card-border-spin {
+  to {
+    --card-border-angle: 360deg;
+  }
+}
+
+@keyframes terminal-border-spin {
+  to {
+    --terminal-border-angle: 360deg;
+  }
 }
 
 .terminal-scroll::-webkit-scrollbar {
@@ -183,7 +344,16 @@
   .route-enter,
   .hero-dot-grid,
   .hero-float-badge,
-  .hero-cursor {
+  .hero-cursor,
+  .animated-card-border::before,
+  .terminal-animated-border {
+    animation: none;
+  }
+
+  .intro-loader,
+  .intro-logo-mark,
+  .intro-kicker,
+  .intro-command {
     animation: none;
   }
 

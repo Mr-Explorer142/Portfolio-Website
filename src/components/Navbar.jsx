@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { BookOpen, FolderGit2, House, Mail, Send, Terminal } from "lucide-react";
+import { BookOpen, FolderGit2, House, Mail, Moon, Send, Sun, Terminal } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { profile } from "../data/profile";
 import { Button } from "./ui/button";
@@ -12,6 +12,13 @@ export function Navbar() {
   const isCatalog = location.pathname === "/projects";
   const isContact = location.pathname === "/contact";
   const isPublication = location.pathname === "/research";
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains("dark"));
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+    document.documentElement.style.colorScheme = isDark ? "dark" : "light";
+    window.localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md transition-all">
@@ -86,6 +93,15 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setIsDark((current) => !current)}
+            className="inline-flex h-8 w-8 items-center justify-center rounded border border-border text-muted-foreground transition-colors hover:border-accent hover:bg-accent/10 hover:text-accent"
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
           <div className="flex items-center gap-1 border-r border-border pr-2 sm:pr-3 mr-1">
             <a
               href={profile.githubUrl}

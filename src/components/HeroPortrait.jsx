@@ -20,11 +20,11 @@ export function HeroPortrait({ name, title, imageSrc }) {
             <span className="h-2.5 w-2.5 rounded-full bg-amber-300/90" />
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/90" />
           </div>
-          <div className="ml-2 flex h-full items-center border-b border-accent px-3 text-primary">
+          <div className="ml-2 flex h-full items-center border-b border-accent px-3 text-slate-200">
             <Code2 className="mr-2 h-3.5 w-3.5 text-accent" />
             tamim.tsx
           </div>
-          <span className="ml-auto text-muted-foreground">TSX</span>
+          <span className="ml-auto text-slate-400">TSX</span>
         </div>
 
         <div className="hero-portrait-scan relative aspect-[4/4.5] overflow-hidden">
@@ -36,7 +36,7 @@ export function HeroPortrait({ name, title, imageSrc }) {
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#08121b]/80 via-transparent to-cyan-950/10" />
         </div>
 
-        <div className="flex items-center justify-between border-t border-white/10 bg-[#111925] px-4 py-2 font-mono text-[10px] text-muted-foreground">
+        <div className="flex items-center justify-between border-t border-white/10 bg-[#111925] px-4 py-2 font-mono text-[10px] text-slate-300">
           <span>{name}</span>
           <span className="text-accent">Ln 01, Col 01</span>
         </div>

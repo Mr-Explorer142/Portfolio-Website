@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
@@ -111,6 +111,24 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  useLayoutEffect(() => {
+    document.documentElement.classList.remove("app-preloading");
+  }, []);
+
+  useEffect(() => {
+    const leaveTimer = window.setTimeout(() => {
+      document.getElementById("boot-loader")?.classList.add("boot-loader-leaving");
+    }, 2500);
+    const removeTimer = window.setTimeout(() => {
+      document.getElementById("boot-loader")?.remove();
+    }, 3000);
+
+    return () => {
+      window.clearTimeout(leaveTimer);
+      window.clearTimeout(removeTimer);
+    };
+  }, []);
+
   return (
     <BrowserRouter>
       <ScrollToTop />

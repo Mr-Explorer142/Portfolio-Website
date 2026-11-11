@@ -24,7 +24,7 @@ export function TerminalMockup() {
   };
 
   return (
-    <div className="w-full rounded-lg border border-border bg-card/90 shadow-2xl backdrop-blur-md overflow-hidden font-mono text-xs transition-all duration-300 hover:border-accent/80 hover:shadow-glow-accent">
+    <div className="terminal-animated-border relative isolate w-full rounded-lg shadow-2xl backdrop-blur-md overflow-hidden font-mono text-xs transition-all duration-300 hover:shadow-glow-accent">
       <div className="flex flex-wrap items-center justify-between gap-y-2 px-4 py-2.5 border-b border-border bg-background/90 select-none">
         <div className="flex items-center gap-2 min-w-0">
           <div className="flex items-center gap-1.5" aria-hidden="true">
@@ -32,7 +32,7 @@ export function TerminalMockup() {
             <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block border border-amber-600" />
             <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block border border-emerald-600" />
           </div>
-          <div className="ml-3 flex items-center gap-1.5 text-muted-foreground text-[11px]">
+          <div className="ml-3 flex items-center gap-1.5 text-slate-400 text-[11px]">
             <TerminalIcon className="w-3.5 h-3.5 text-accent" />
             <span>portfolio terminal</span>
           </div>
@@ -71,14 +71,14 @@ export function TerminalMockup() {
       </div>
 
       <div className="p-4 sm:p-5 overflow-x-auto terminal-scroll text-left leading-relaxed bg-[#0b0f19]">
-        <div className="flex items-center gap-2 text-muted-foreground mb-3 text-[11px] border-b border-border/40 pb-2">
+        <div className="flex items-center gap-2 text-slate-400 mb-3 text-[11px] border-b border-slate-700/60 pb-2">
           <span className="text-emerald-400">tahmid@portfolio</span>
-          <span className="text-muted-foreground/60">:</span>
+          <span className="text-slate-500">:</span>
           <span className="text-accent">~</span>
-          <span className="text-primary">&gt;_</span>
-          <span className="text-primary font-medium">{activeTab === "profile.json" ? "cat profile.json" : "list GitHub repositories"}</span>
+          <span className="text-slate-200">&gt;_</span>
+          <span className="text-slate-200 font-medium">{activeTab === "profile.json" ? "cat profile.json" : "list GitHub repositories"}</span>
         </div>
-        <pre className="text-primary font-mono text-[11.5px] sm:text-xs">
+        <pre className="text-slate-200 font-mono text-[11.5px] sm:text-xs">
           <code>{terminalContent}</code>
         </pre>
       </div>
