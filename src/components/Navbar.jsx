@@ -6,6 +6,7 @@ import { profile } from "../data/profile";
 import { Button } from "./ui/button";
 
 export function Navbar() {
+  const navbarName = "Mr.Explorer";
   const location = useLocation();
   const isHome = location.pathname === "/";
   const isCatalog = location.pathname === "/projects";
@@ -18,14 +19,14 @@ export function Navbar() {
         <Link
           to="/"
           className="flex items-center gap-2.5 group transition-transform duration-200 active:scale-95"
-          aria-label={`${profile.name} home`}
+          aria-label={`${navbarName} home`}
         >
           <div className="w-8 h-8 rounded border border-accent/60 bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-background transition-colors duration-200 shadow-glow-subtle">
             <Terminal className="w-4 h-4" />
           </div>
           <div className="flex items-center">
             <span className="font-mono text-xs sm:text-sm font-bold tracking-tight text-primary">
-              {profile.name}
+              {navbarName}
             </span>
           </div>
         </Link>
@@ -107,7 +108,7 @@ export function Navbar() {
             <a
               href={`mailto:${profile.email}`}
               className="w-8 h-8 rounded border border-border flex items-center justify-center text-muted-foreground hover:text-accent hover:border-accent hover:bg-accent/10 transition-colors"
-              aria-label={`Email ${profile.name}`}
+              aria-label={`Email ${navbarName}`}
             >
               <Mail className="w-4 h-4" />
             </a>
