@@ -25,7 +25,7 @@ export function TerminalMockup() {
 
   return (
     <div className="terminal-animated-border relative isolate w-full rounded-lg shadow-2xl backdrop-blur-md overflow-hidden font-mono text-xs transition-all duration-300 hover:shadow-glow-accent">
-      <div className="flex flex-wrap items-center justify-between gap-y-2 px-4 py-2.5 border-b border-border bg-background/90 select-none">
+      <div className="terminal-header flex flex-wrap items-center justify-between gap-y-2 px-4 py-2.5 border-b border-border bg-background/90 select-none">
         <div className="flex items-center gap-2 min-w-0">
           <div className="flex items-center gap-1.5" aria-hidden="true">
             <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block border border-rose-600" />
@@ -70,7 +70,7 @@ export function TerminalMockup() {
         </div>
       </div>
 
-      <div className="p-4 sm:p-5 overflow-x-auto terminal-scroll text-left leading-relaxed bg-white dark:bg-[#0b0f19]">
+      <div className="terminal-body relative p-4 sm:p-5 overflow-x-auto terminal-scroll text-left leading-relaxed bg-white dark:bg-[#0b0f19]">
         <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-3 text-[11px] border-b border-slate-300 dark:border-slate-700/60 pb-2">
           <span className="text-emerald-400">tahmid@portfolio</span>
           <span className="text-slate-500 dark:text-slate-500">:</span>
