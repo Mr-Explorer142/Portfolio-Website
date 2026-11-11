@@ -32,7 +32,7 @@ export function TerminalMockup() {
             <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block border border-amber-600" />
             <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block border border-emerald-600" />
           </div>
-          <div className="ml-3 flex items-center gap-1.5 text-slate-400 text-[11px]">
+          <div className="ml-3 flex items-center gap-1.5 text-slate-600 dark:text-slate-400 text-[11px]">
             <TerminalIcon className="w-3.5 h-3.5 text-accent" />
             <span>portfolio terminal</span>
           </div>
@@ -43,7 +43,7 @@ export function TerminalMockup() {
             aria-pressed={activeTab === "profile.json"}
             onClick={() => setActiveTab("profile.json")}
             className={`px-2 py-0.5 rounded text-[11px] transition-colors ${
-              activeTab === "profile.json" ? "bg-accent/20 text-accent font-semibold" : "text-muted-foreground hover:text-primary"
+              activeTab === "profile.json" ? "bg-accent/20 text-accent font-semibold" : "text-slate-600 dark:text-slate-400 hover:text-primary"
             }`}
           >
             profile.json
@@ -53,7 +53,7 @@ export function TerminalMockup() {
             aria-pressed={activeTab === "curl"}
             onClick={() => setActiveTab("curl")}
             className={`px-2 py-0.5 rounded text-[11px] transition-colors ${
-              activeTab === "curl" ? "bg-accent/20 text-accent font-semibold" : "text-muted-foreground hover:text-primary"
+              activeTab === "curl" ? "bg-accent/20 text-accent font-semibold" : "text-slate-600 dark:text-slate-400 hover:text-primary"
             }`}
           >
             repos.sh
@@ -61,7 +61,7 @@ export function TerminalMockup() {
           <button
             type="button"
             onClick={handleCopy}
-            className="p-1 rounded text-muted-foreground hover:text-accent transition-colors ml-1"
+            className="p-1 rounded text-slate-600 dark:text-slate-400 hover:text-accent transition-colors ml-1"
             title="Copy terminal snippet"
             aria-label="Copy terminal snippet"
           >
@@ -70,15 +70,15 @@ export function TerminalMockup() {
         </div>
       </div>
 
-      <div className="p-4 sm:p-5 overflow-x-auto terminal-scroll text-left leading-relaxed bg-[#0b0f19]">
-        <div className="flex items-center gap-2 text-slate-400 mb-3 text-[11px] border-b border-slate-700/60 pb-2">
+      <div className="p-4 sm:p-5 overflow-x-auto terminal-scroll text-left leading-relaxed bg-white dark:bg-[#0b0f19]">
+        <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mb-3 text-[11px] border-b border-slate-300 dark:border-slate-700/60 pb-2">
           <span className="text-emerald-400">tahmid@portfolio</span>
-          <span className="text-slate-500">:</span>
+          <span className="text-slate-500 dark:text-slate-500">:</span>
           <span className="text-accent">~</span>
-          <span className="text-slate-200">&gt;_</span>
-          <span className="text-slate-200 font-medium">{activeTab === "profile.json" ? "cat profile.json" : "list GitHub repositories"}</span>
+          <span className="text-slate-700 dark:text-slate-200">&gt;_</span>
+          <span className="text-slate-700 dark:text-slate-200 font-medium">{activeTab === "profile.json" ? "cat profile.json" : "list GitHub repositories"}</span>
         </div>
-        <pre className="text-slate-200 font-mono text-[11.5px] sm:text-xs">
+        <pre className="text-slate-800 dark:text-slate-200 font-mono text-[11.5px] sm:text-xs">
           <code>{terminalContent}</code>
         </pre>
       </div>
